@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --header-navy: #0B1220;
+    --accent-teal: #2DD4BF;
+    --risk-coral: #E76F51;
+    --risk-yellow: #E9B949;
+    --risk-green: #34A853;
+    --missing-slate: #94A3B8;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    background-color: #F8FAFC;
+    color: #0F172A;
+  }
+}
+
+/* Custom scrollbars for data tables and drawers */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Radar pulse animation for outbreak hotspots */
+@keyframes radarPing {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(3.2);
+    opacity: 0;
+  }
+}
+
+.radar-ring {
+  animation: radarPing 2.2s cubic-bezier(0.1, 0.4, 0.2, 1) infinite;
+}
+
+/* Blinking high risk beacon */
+@keyframes beaconBlink {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(0.9);
+  }
+}
+
+.beacon-pulse {
+  animation: beaconBlink 1.4s ease-in-out infinite;
+}
+
+/* Shimmer animation for skeleton loaders */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(90deg, #F1F5F9 25%, #E2E8F0 50%, #F1F5F9 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.8s infinite;
+}
